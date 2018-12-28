@@ -27,3 +27,4 @@
 /config/master.key
 
 /mysql-data
+.sec_env
