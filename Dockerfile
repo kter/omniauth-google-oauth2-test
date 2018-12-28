@@ -6,5 +6,6 @@ COPY Gemfile /myapp/Gemfile
 COPY Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 COPY . /myapp
-ARG RAILS_MASTER_KEY
-RUN DB_ADAPTER=nulldb RAILS_ENV=production bundle exec rake assets:precompile
+# 開発と本番環境でイメージを共有させたいので、下記2行はデプロイ時に行う
+# ARG RAILS_MASTER_KEY
+# RUN DB_ADAPTER=nulldb RAILS_ENV=production bundle exec rake assets:precompile
