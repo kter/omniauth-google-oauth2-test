@@ -1,5 +1,6 @@
 class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   def google
+    logger.debug("Users::OmniauthCallbacksCOntroller.google")
     @user = User.find_for_google(request.env['omniauth.auth'])
 
     if @user.persisted?
